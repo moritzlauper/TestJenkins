@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Success') {
+    stage('Get Code') {
       steps {
-        echo 'worked!'
+        git 'https://github.com/moritzlauper/TestJenkins.git'
+      }
+    }
+    stage('') {
+      steps {
+        echo 'worked'
       }
     }
   }
