@@ -1,12 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('Get Code') {
-      steps {
-        git 'https://github.com/moritzlauper/TestJenkins.git'
+    stage('Integrate') {
+      parallel {
+        stage('Integrate') {
+          steps {
+            git 'https://github.com/moritzlauper/TestJenkins.git'
+          }
+        }
+        stage('Test 1 Stage') {
+          steps {
+            echo 'test 1'
+          }
+        }
+        stage('Test 2 Stage') {
+          steps {
+            echo 'test 2'
+          }
+        }
       }
     }
-    stage('') {
+    stage('Test') {
       steps {
         echo 'worked'
       }
